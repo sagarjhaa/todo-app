@@ -13,7 +13,7 @@ function AddTask() {
   const submit = async () => {
     const response = await fetch("/add-task", {
       method: "post",
-      body: JSON.stringify(task),
+      body: JSON.stringify({ task: task }),
       headers: { "Content-Type": "application/json" },
     });
     console.log(response);
@@ -26,7 +26,7 @@ function AddTask() {
         value={task}
         onChange={(event) => setTask(event.target.value)}
       />
-      <input type="button" onClick={() => submit()} />
+      <input type="button" value="Submit" onClick={() => submit()} />
     </div>
   );
 }
